@@ -7,5 +7,4 @@ class Question (
     var answerC: String?,
     var answerD: String?,
     var correctAns: String
-
 )
