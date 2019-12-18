@@ -1,6 +1,6 @@
 package com.example.kotlinfeud.model
 
-class Questions (
+class Question (
     var questionText: String,
     var answerA: String?,
     var answerB: String?,
