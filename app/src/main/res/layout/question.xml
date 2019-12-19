@@ -19,10 +19,11 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/tv_qustion"
+        android:id="@+id/tv_question"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Question"
+        android:text="Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,38 +35,42 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:hint="Answer 1"
-        app:layout_constraintTop_toBottomOf="@id/tv_qustion"
+        android:text="Answer A"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rd_answer2"/>
+        app:layout_constraintBottom_toTopOf="@id/rb_answer2"/>
 
     <RadioButton
-        android:id="@+id/rd_answer2"
+        android:id="@+id/rb_answer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Answer 2"
+        android:text="Answer B"
         app:layout_constraintTop_toBottomOf="@+id/rb_answer1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rd_answer3"/>
+        app:layout_constraintBottom_toTopOf="@+id/rb_answer3"/>
 
     <RadioButton
-        android:id="@+id/rd_answer3"
+        android:id="@+id/rb_answer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Answer 3"
-        app:layout_constraintTop_toBottomOf="@id/rd_answer2"
-        app:layout_constraintBottom_toTopOf="@id/rd_answer4"
+        android:text="Answer C"
+        app:layout_constraintTop_toBottomOf="@id/rb_answer2"
+        app:layout_constraintBottom_toTopOf="@id/rb_answer4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioButton
-        android:id="@+id/rd_answer4"
+        android:id="@+id/rb_answer4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="360dp"
         android:hint="Answer 4"
-        app:layout_constraintTop_toBottomOf="@+id/rd_answer3"
+        android:text="Answer D"
+        app:layout_constraintTop_toBottomOf="@+id/rb_answer3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
