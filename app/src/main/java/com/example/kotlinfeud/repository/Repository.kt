@@ -7,7 +7,7 @@ object Repository {
     fun getGameQuestions(): ArrayList<Question> {
         questionlist = ArrayList()
 
-        var questionA = Question(
+        val questionA = Question(
             "Designed to store and manage data in lifecycle, allowing data to survive configuration changes",
             "Live Data",
             "Life Cycle",
@@ -15,7 +15,7 @@ object Repository {
             "Data Management",
             "View Model"
         )
-        var questionB = Question(
+        val questionB = Question(
             "What does MVVM Stand For?",
             "Model View View Module",
             "Module View View Module",
@@ -23,7 +23,7 @@ object Repository {
             "Model View View Model",
             "Model View View Model"
         )
-        var questionC = Question(
+        val questionC = Question(
             "What does MVP Stand for",
             "Model View Preventer",
             "Model View Presenter",
@@ -31,7 +31,7 @@ object Repository {
             "Module View Presenter",
             "Model View Presenter"
         )
-        var questionD = Question(
+        val questionD = Question(
             "In Jetpack, which category of component is ViewModel under?",
             "Foundation",
             "UI",
