@@ -1,7 +1,6 @@
 package com.example.kotlinfeud.viewModel
 
 import android.app.Application
-import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.kotlinfeud.model.Question
@@ -21,16 +20,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getNewQuestion(): Question {
-        val question = questionList.value!![questionIndex]
-        return question
+        return questionList.value!![questionIndex]
     }
 
     fun checkAnswer(ans:String):Boolean{
-        if(currentQuestion.value?.correctAns == ans){
+        return if(currentQuestion.value?.correctAns == ans){
             score.value!!+ 1
-            return true
+            true
         }else{
-            return false
+            false
         }
     }
 
