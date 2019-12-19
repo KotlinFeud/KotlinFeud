@@ -5,11 +5,13 @@ import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.kotlinfeud.model.Question
+import com.example.kotlinfeud.repository.Repository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    val questionList: MutableLiveData<Question> = MutableLiveData()
+    val questionList: MutableLiveData<ArrayList<Question>> = MutableLiveData()
     val currentQuestion: MutableLiveData<Question> = MutableLiveData()
-    val score: MutableLiveData<Int> = MutableLiveData()
+    val questionIndex = 0
+    var score: MutableLiveData<Int> = MutableLiveData()
 
 
     fun startNewGame(): Question {
@@ -19,24 +21,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getNewQuestion(): Question {
+        val question = questionList.value!![questionIndex]
+        return question
+    }
 
-        val q1= Question(
-            "Who do u love?",
-            "Santa Clause",
-            "Easter Bunny",
-            "Anyone who feeds me",
-            "Not a soul in the world",
-            "Not a soul in the world")
-
-
-
-        return q1
+    fun checkAnswer(ans:String):Boolean{
+        if(currentQuestion.value?.correctAns == ans){
+            score.value!!+ 1
+            return true
+        }else{
+            return false
+        }
     }
 
 
-    fun populateQuestionList(): List<View> {
-
-        return listOf()
+    private fun populateQuestionList(): ArrayList<Question> {
+        questionList.value = Repository.getGameQuestions()
+        return questionList.value!!
     }
 
 }

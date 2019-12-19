@@ -8,7 +8,5 @@ class Question (
     var answerD: String?,
     var correctAns: String
 ){
-    fun checkAnswer(ans:String):Boolean{
-        return correctAns == ans
-    }
+
 }
