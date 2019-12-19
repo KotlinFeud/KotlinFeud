@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.kotlinfeud.R
+import kotlinx.android.synthetic.main.question.*
 
 class QuestionsFragment : BaseFragment() {
 
@@ -21,7 +22,6 @@ class QuestionsFragment : BaseFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         var theView = inflater.inflate(R.layout.question,container,false)
-
 
 
 
