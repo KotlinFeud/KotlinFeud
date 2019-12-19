@@ -8,12 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.kotlinfeud.R
 
-class QuestionsFragment : Fragment() {
+class QuestionsFragment : BaseFragment() {
 
     lateinit var correctAns: String
     private var questionIndex = 0
-
-// private val numQuestions = Math.min(((questionText.size + 1)) / 2,3)
 
     override fun onCreateView(
         inflater: LayoutInflater,
