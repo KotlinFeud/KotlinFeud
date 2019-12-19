@@ -9,7 +9,7 @@ import com.example.kotlinfeud.repository.Repository
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     val questionList: MutableLiveData<ArrayList<Question>> = MutableLiveData()
     val currentQuestion: MutableLiveData<Question> = MutableLiveData()
-    val questionIndex = 0
+    var questionIndex = 0
     var score: MutableLiveData<Int> = MutableLiveData()
 
 
@@ -20,7 +20,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getNewQuestion(): Question {
-        return questionList.value!![questionIndex]
+        currentQuestion.value = questionList.value!![questionIndex++]
+        return currentQuestion.value!!
     }
 
     fun checkAnswer(ans:String):Boolean{
@@ -30,6 +31,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }else{
             false
         }
+    }
+
+    fun getFinalScore():Int{
+        return score.value!!
     }
 
 

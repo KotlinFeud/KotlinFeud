@@ -7,14 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kotlinfeud.R
 import kotlinx.android.synthetic.main.question.*
+<<<<<<< HEAD
 import kotlinx.android.synthetic.main.question.view.*
+=======
+>>>>>>> master
 
 class QuestionsFragment : BaseFragment() {
 
     lateinit var correctAns: String
     private var questionIndex = 0
-
-// private val numQuestions = Math.min(((questionText.size + 1)) / 2,3)
 
     override fun onCreateView(
         inflater: LayoutInflater,
