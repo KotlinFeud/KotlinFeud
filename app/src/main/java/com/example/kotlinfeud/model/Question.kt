@@ -1,5 +1,6 @@
 package com.example.kotlinfeud.model
 
+<<<<<<< HEAD:app/src/main/java/com/example/kotlinfeud/model/Questions.kt
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,15 @@ import java.time.Instant
 import java.util.zip.Inflater
 
 class Questions: Fragment() (
+=======
+class Question (
+>>>>>>> master:app/src/main/java/com/example/kotlinfeud/model/Question.kt
     var questionText: String,
     var answerA: String?,
     var answerB: String?,
     var answerC: String?,
     var answerD: String?,
+<<<<<<< HEAD:app/src/main/java/com/example/kotlinfeud/model/Questions.kt
     var correctAns: String = ""
 
 
@@ -38,3 +43,11 @@ override fun onCreateView(inflater: LayoutInflater,container: ViewGroup),
 }
 
 )
+=======
+    var correctAns: String
+){
+    fun checkAnswer(ans:String):Boolean{
+        return correctAns == ans
+    }
+}
+>>>>>>> master:app/src/main/java/com/example/kotlinfeud/model/Question.kt
