@@ -1,7 +1,8 @@
-package com.example.kotlinfeud
+package com.example.kotlinfeud.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlinfeud.R
 
 class MainActivity : AppCompatActivity() {
 
