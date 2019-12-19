@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.example.kotlinfeud.view.activities.MainActivity
 import com.example.kotlinfeud.viewModel.MainViewModel
 
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
 
     lateinit var viewModel: MainViewModel
 

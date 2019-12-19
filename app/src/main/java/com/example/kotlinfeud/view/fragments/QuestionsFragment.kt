@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.kotlinfeud.R
 
-class QuestionsFragment : Fragment() {
+class QuestionsFragment : BaseFragment() {
 
     lateinit var correctAns: String
     private var questionIndex = 0
