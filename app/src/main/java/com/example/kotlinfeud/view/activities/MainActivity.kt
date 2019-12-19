@@ -1,4 +1,4 @@
-package com.example.kotlinfeud.view
+package com.example.kotlinfeud.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
