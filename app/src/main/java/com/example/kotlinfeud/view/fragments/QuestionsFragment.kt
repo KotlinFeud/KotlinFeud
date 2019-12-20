@@ -62,22 +62,3 @@ fun nextQuestion(){
 
 }
 }
-
-/*// Bind this fragment class to the layout
-fun onClickButton(v: View) {
-}
-
-}}
-// Shuffles the questions and sets the question index to the first question
-//TODO("Set up the game to display the next question")
-fun setUpGame() {
-
-}
-
-fun checkAnswer(ans: String): Boolean {
-    return correctAns == ans
-}
-}
-
-*/
-
