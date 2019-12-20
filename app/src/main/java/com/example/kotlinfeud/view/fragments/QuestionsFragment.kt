@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.RadioButton
 import com.example.kotlinfeud.R
 import kotlinx.android.synthetic.main.question.*
-import kotlinx.android.synthetic.main.question.view.*
 
 
 class QuestionsFragment : BaseFragment() {
 
+    lateinit var radio: RadioButton
     lateinit var correctAns: String
     private var questionIndex = 0
 
@@ -24,7 +24,7 @@ class QuestionsFragment : BaseFragment() {
 
         var theView = inflater.inflate(R.layout.question, container, false)
 
-        val question =viewModel.startNewGame()
+        val question = viewModel.startNewGame()
 
 
 
@@ -34,27 +34,50 @@ class QuestionsFragment : BaseFragment() {
         rb_answer3.text = question.answerC
         rb_answer4.text = question.answerD
 
+        // Get radio group selected item using on checked change Listener
+        radio_group.setOnCheckedChangeListener { group, checkedId ->
+            radio = theView.findViewById(checkedId)
+        }
+
+        // Get radio group selected status and text using button click event
         btn_submit.setOnClickListener {
             //This is what happens when the button gets clicked
-
+            // Get the checked radio button id from radio group
+            var selectedText: String = radio.text.toString()
+            var answerIsCorrect = viewModel.checkAnswer(selectedText)
+            if(answerIsCorrect)
+                nextQuestion()
+            else
+                    gameOver()
         }
 
 
-        return theView
-    }
-
-    // Bind this fragment class to the layout
-    fun onClickButton(v: View) {
-    }
-
-
-    // Shuffles the questions and sets the question index to the first question
-    //TODO("Set up the game to display the next question")
-    fun setUpGame() {
-
-    }
-
-    fun checkAnswer(ans: String): Boolean {
-        return correctAns == ans
-    }
+return theView
 }
+
+fun gameOver() {
+
+}
+fun nextQuestion(){
+
+}
+}
+
+/*// Bind this fragment class to the layout
+fun onClickButton(v: View) {
+}
+
+}}
+// Shuffles the questions and sets the question index to the first question
+//TODO("Set up the game to display the next question")
+fun setUpGame() {
+
+}
+
+fun checkAnswer(ans: String): Boolean {
+    return correctAns == ans
+}
+}
+
+*/
+
