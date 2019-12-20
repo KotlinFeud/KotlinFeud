@@ -19,7 +19,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return getNewQuestion()
     }
 
-    private fun getNewQuestion(): Question {
+    fun getNewQuestion(): Question {
         currentQuestion.value = questionList.value!![questionIndex++]
         return currentQuestion.value!!
     }
