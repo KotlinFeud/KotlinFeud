@@ -21,17 +21,14 @@ class QuestionsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-
         val theView = inflater.inflate(R.layout.question, container, false)
 
         currentQuestion = viewModel.startNewGame()
         populateQuestion(currentQuestion)
 
-        // Get radio group selected item using on checked change Listener
         radio_group.setOnCheckedChangeListener { group, checkedId ->
             radio = theView.findViewById(checkedId)
         }
-        // Get radio group selected status and text using button click event
         btn_submit.setOnClickListener {
             //This is what happens when the button gets clicked
             // Get the checked radio button id from radio group
@@ -42,6 +39,8 @@ class QuestionsFragment : BaseFragment() {
             else
                 gameOver()
         }
+
+        
         return theView
     }
 
