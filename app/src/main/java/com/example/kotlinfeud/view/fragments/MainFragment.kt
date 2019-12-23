@@ -24,7 +24,7 @@ class MainFragment: BaseFragment () {
 
         val startGame = theView.findViewById<Button>(R.id.button_startGame)
 
-        button_startGame.setOnClickListener {
+        startGame.setOnClickListener {
             Toast.makeText(context,"Success",Toast.LENGTH_SHORT).show()
 
         }
