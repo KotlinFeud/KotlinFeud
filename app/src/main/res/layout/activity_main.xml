@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".view.activities.MainActivity">
-
-
-    <FrameLayout
+  
+  <FrameLayout
         android:id="@+id/fragmentCont"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -16,6 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+                                                   
+       
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
