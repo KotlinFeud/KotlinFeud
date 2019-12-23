@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val startGame = findViewById<Button>(R.id.button_startGame)
 
         button_startGame.setOnClickListener {
-            Toast.makeText(this,"Success", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
         }
     }
 
