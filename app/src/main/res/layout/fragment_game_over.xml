@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_grey_900"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -12,6 +13,7 @@
       android:layout_height="wrap_content"
       android:text="Game Over!"
       android:textSize="58dp"
+      android:textColor="@color/md_grey_50"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
@@ -27,6 +29,7 @@
       android:layout_height="wrap_content"
       android:text="Play Again"
       android:textSize="30dp"
+      android:textColor="@color/md_grey_50"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +66,7 @@
       android:layout_height="wrap_content"
       android:text="Score: "
       android:textSize="45dp"
+      android:textColor="@color/md_grey_50"
       app:layout_constraintBottom_toTopOf="@id/btn1"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
