@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.MainActivity">
+    tools:context=".view.activities.MainActivity"
+    android:background="@color/md_grey_900">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,6 +27,7 @@
         android:layout_marginTop="52dp"
         android:text="Kotlin Fued"
         android:textSize="50sp"
+        android:textColor="@color/md_grey_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3. Press Start Game to Begin"
+        android:textColor="@color/md_grey_50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -60,6 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:textColor="@color/md_grey_50"
         android:text="2. Answer Questions Correctly"
         app:layout_constraintBottom_toTopOf="@+id/tv_Description"
         app:layout_constraintStart_toStartOf="@+id/tv_Description" />
@@ -69,6 +72,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:textColor="@color/md_grey_50"
         android:text="1. Multiple Choice Questions"
         app:layout_constraintBottom_toTopOf="@+id/tv_description2"
         app:layout_constraintStart_toStartOf="@id/tv_description2" />
