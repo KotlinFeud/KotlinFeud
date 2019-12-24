@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
 import kotlinx.android.synthetic.main.fragment_game_over.*
 import kotlinx.android.synthetic.main.fragment_game_over.view.*
@@ -27,6 +29,9 @@ class GameOverFragment : BaseFragment() {
     ): View? {
        val theView =  inflater.inflate(R.layout.fragment_game_over,container,false)
 
+        val scoreView:TextView = theView.findViewById(R.id.tv_score)
+        scoreView.text = viewModel.getFinalScore().toString()
+
         btnNo = theView.findViewById(R.id.btnNo)
         btnYes = theView.findViewById(R.id.btnYes)
 
@@ -44,10 +49,12 @@ class GameOverFragment : BaseFragment() {
     }
 
     fun backHome(){
-        //TODO Use navigation component to go to home screen
+        val action = GameOverFragmentDirections.actionGameOverFragmentToMainFragment()
+        findNavController().navigate(action)
     }
 
     fun startNewGame(){
-        //TODO Use navigation component to go to first question
+        val action = GameOverFragmentDirections.actionGameOverFragmentToQuestionsFragment()
+        findNavController().navigate(action)
     }
 }
