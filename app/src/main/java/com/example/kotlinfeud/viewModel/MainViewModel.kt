@@ -1,6 +1,7 @@
 package com.example.kotlinfeud.viewModel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.kotlinfeud.model.Question
@@ -11,6 +12,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val currentQuestion: MutableLiveData<Question> = MutableLiveData()
     var questionIndex = 0
     var score: MutableLiveData<Int> = MutableLiveData()
+    var playerWon:Boolean = false
 
 
     fun startNewGame(): Question {
@@ -19,18 +21,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return getNewQuestion()
     }
 
-    private fun getNewQuestion(): Question {
-        currentQuestion.value = questionList.value!![questionIndex++]
+    fun getNewQuestion(): Question {
+        if(questionIndex>= questionList.value!!.size){
+            playerWon = true
+            currentQuestion.value = Question("","","","","","")
+        }else{
+            currentQuestion.value = questionList.value!![questionIndex++]
+        }
         return currentQuestion.value!!
     }
 
     fun checkAnswer(ans:String):Boolean{
-        return if(currentQuestion.value?.correctAns == ans){
-            score.value!!+ 1
-            true
-        }else{
-            false
-        }
+        return currentQuestion.value?.correctAns == ans
     }
 
     fun getFinalScore():Int{
@@ -41,6 +43,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun populateQuestionList(): ArrayList<Question> {
         questionList.value = Repository.getGameQuestions()
         return questionList.value!!
+    }
+
+    fun incrementScore() {
+        score.value = score.value!!.plus(1)
     }
 
 }

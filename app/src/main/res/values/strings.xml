@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinFeud</string>
+    <string name="scoreText">Score:</string>
 </resources>
