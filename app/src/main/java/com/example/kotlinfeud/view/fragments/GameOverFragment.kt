@@ -1,5 +1,6 @@
 package com.example.kotlinfeud.view.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ class GameOverFragment : BaseFragment() {
     lateinit var btnNo:Button
     lateinit var btnYes:Button
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +32,7 @@ class GameOverFragment : BaseFragment() {
        val theView =  inflater.inflate(R.layout.fragment_game_over,container,false)
 
         val scoreView:TextView = theView.findViewById(R.id.tv_score)
-        scoreView.text = viewModel.getFinalScore().toString()
+        scoreView.text = """${context!!.getString(R.string.scoreText)} ${viewModel.getFinalScore()}"""
 
         btnNo = theView.findViewById(R.id.btnNo)
         btnYes = theView.findViewById(R.id.btnYes)

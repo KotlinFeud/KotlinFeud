@@ -31,7 +31,7 @@ class QuestionsFragment : BaseFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val theView = inflater.inflate(R.layout.question, container, false)
 
-        val radioGroup: RadioGroup = theView.findViewById(R.id.radio_group)
+        val radioGroup: RadioGroup = theView.findViewById(R.id.radio_g)
         val btnSubmit: Button = theView.findViewById(R.id.btn_submit)
 
         tvQuestion = theView.findViewById(R.id.tv_question)
@@ -50,7 +50,7 @@ class QuestionsFragment : BaseFragment() {
             val selectedText: String = radio.text.toString()
             val answerIsCorrect = viewModel.checkAnswer(selectedText)
             if (answerIsCorrect) {
-                Toast.makeText(context,"Correct!!!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Correct!!!", Toast.LENGTH_SHORT).show()
                 viewModel.incrementScore()
                 nextQuestion()
             } else {
@@ -67,7 +67,7 @@ class QuestionsFragment : BaseFragment() {
 
     private fun nextQuestion() {
         currentQuestion = viewModel.getNewQuestion()
-        if(viewModel.playerWon){
+        if (viewModel.playerWon) {
             gameOver()
         }
         populateQuestion(currentQuestion)
