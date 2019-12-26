@@ -16,12 +16,14 @@ class QuestionsFragment : BaseFragment() {
     lateinit var radio: RadioButton
     lateinit var currentQuestion: Question
 
+
     //Question Views
     lateinit var tvQuestion: TextView
     lateinit var ansA: TextView
     lateinit var ansB: TextView
     lateinit var ansC: TextView
     lateinit var ansD: TextView
+    lateinit var score: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +36,13 @@ class QuestionsFragment : BaseFragment() {
         val radioGroup: RadioGroup = theView.findViewById(R.id.radio_g)
         val btnSubmit: Button = theView.findViewById(R.id.btn_submit)
 
+
         tvQuestion = theView.findViewById(R.id.tv_question)
         ansA = theView.findViewById(R.id.rb_answer1)
         ansB = theView.findViewById(R.id.rb_answer2)
         ansC = theView.findViewById(R.id.rb_answer3)
         ansD = theView.findViewById(R.id.rb_answer4)
+        score = theView.findViewById((R.id.gamecounter))
 
         currentQuestion = viewModel.startNewGame()
         populateQuestion(currentQuestion)
@@ -70,6 +74,7 @@ class QuestionsFragment : BaseFragment() {
         if (viewModel.playerWon) {
             gameOver()
         }
+        gamecounter.text = """${context!!.getString(R.string.scoreText)} ${viewModel.getFinalScore()}"""
         populateQuestion(currentQuestion)
     }
 

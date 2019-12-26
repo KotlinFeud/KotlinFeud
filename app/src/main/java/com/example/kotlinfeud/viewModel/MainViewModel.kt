@@ -46,7 +46,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun incrementScore() {
-        score.value = score.value!!.plus(1)
+        score.value = (score.value)?.plus(1)
     }
 
 }
