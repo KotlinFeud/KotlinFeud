@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
@@ -29,6 +31,15 @@ class MainFragment : BaseFragment() {
         startGame.setOnClickListener {
             startGame()
         }
+
+        //Declared Animation
+        val stb = AnimationUtils.loadAnimation(context,R.anim.stb)
+
+        val h_title = theView.findViewById<TextView>(R.id.tv_kotlinFued)
+
+        // Set Animation
+
+        h_title.startAnimation(stb)
         return theView
     }
 
