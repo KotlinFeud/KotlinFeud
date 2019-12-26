@@ -14,23 +14,12 @@ import com.example.kotlinfeud.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
-  //   lateinit var viewModel: MainViewModel
+    lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.details_frag,GameOverFragment.newInstance(),"GameOver")
-                .commit()
-        }
-
-
-
-     //    viewModel = ViewModelProviders.of(this)
-        //    .get(MainViewModel::class.java)
+         viewModel = ViewModelProviders.of(this)
+           .get(MainViewModel::class.java)
 
 
     }
