@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Kotlin Fued"
+        android:background="@color/md_red_500"
         android:textSize="50sp"
         android:textColor="@color/md_grey_50"
         app:layout_constraintEnd_toEndOf="parent"

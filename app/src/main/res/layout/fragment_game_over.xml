@@ -12,6 +12,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Game Over!"
+      android:background="@color/md_red_500"
       android:textSize="58dp"
       android:textColor="@color/md_grey_50"
       android:textStyle="italic"

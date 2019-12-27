@@ -39,7 +39,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return score.value!!
     }
 
-
     private fun populateQuestionList(): ArrayList<Question> {
         questionList.value = Repository.getGameQuestions()
         return questionList.value!!
