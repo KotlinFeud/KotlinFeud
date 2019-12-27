@@ -39,14 +39,14 @@ object Repository {
             "Animation",
             "Architecture"
         )
-        val questionE = Question(
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        )
+//        val questionE = Question(
+//            "",
+//            "",
+//            "",
+//            "",
+//            "",
+//            ""
+//        )
 
         questionlist.add(questionA)
         questionlist.add(questionB)
