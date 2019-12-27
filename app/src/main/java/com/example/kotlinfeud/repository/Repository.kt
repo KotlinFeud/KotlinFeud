@@ -254,4 +254,17 @@ object Repository {
 
     }
 
+    //TOdo make a function to add a new game to the database
+    //Todo make a function to retrieve a list of all games played
+    //Todo make a function to remove a game from the database
+
+    //Todo make a function to make a player object
+    //Todo make a function to save a player object
+    //Todo make a function to edit a player object
+    //Todo make a functio to delete a player object
+
+    //Todo make a function to save a game object
+    //Todo make a function to delete a game object
+    //Todo make a function to pair a game object with a player object.
+
 }
