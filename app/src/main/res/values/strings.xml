@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">KotlinFeud</string>
     <string name="scoreText">Score:</string>
+    <string name="play_again">Play Again?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
