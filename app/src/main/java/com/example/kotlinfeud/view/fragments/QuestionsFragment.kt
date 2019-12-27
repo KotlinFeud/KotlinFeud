@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
@@ -57,6 +58,28 @@ class QuestionsFragment : BaseFragment() {
                 gameOver()
             }
         }
+
+        //delcare animation
+        val stb = AnimationUtils.loadAnimation(context,R.anim.stb)
+        val ltr = AnimationUtils.loadAnimation(context,R.anim.ltr)
+        val ltr2 = AnimationUtils.loadAnimation(context,R.anim.ltr2)
+        val ltr3 = AnimationUtils.loadAnimation(context,R.anim.ltr3)
+        val ltr4 = AnimationUtils.loadAnimation(context,R.anim.ltr4)
+
+        //initialize animation
+        val tv_q = theView.findViewById<TextView>(R.id.tv_question)
+        val ans1 = theView.findViewById<TextView>(R.id.rb_answer1)
+        val ans2 = theView.findViewById<TextView>(R.id.rb_answer2)
+        val ans3 = theView.findViewById<TextView>(R.id.rb_answer3)
+        val ans4 = theView.findViewById<TextView>(R.id.rb_answer4)
+
+        //set animation
+        tv_q.startAnimation(stb)
+        ans1.startAnimation(ltr)
+        ans2.startAnimation(ltr2)
+        ans3.startAnimation(ltr3)
+        ans4.startAnimation(ltr4)
+
         return theView
     }
 
