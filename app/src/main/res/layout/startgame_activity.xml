@@ -14,6 +14,7 @@
         android:fontFamily="@font/bangers"
         android:gravity="center"
         android:text="Kotlin Fued"
+        android:background="@color/md_red_500"
         android:textColor="@color/md_grey_50"
         android:textSize="95sp"
         app:layout_constraintBottom_toTopOf="@id/t_guide"
