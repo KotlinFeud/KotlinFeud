@@ -36,8 +36,8 @@ class MainFragment : BaseFragment() {
 
         val h_title = theView.findViewById<TextView>(R.id.tv_kotlinFued)
         val d_descrb = theView.findViewById<TextView>(R.id.tv_descrb1)
-        val d_descrb2 = theView.findViewById<TextView>(R.id.tv_descrb3)
-        val d_descrb3= theView.findViewById<TextView>(R.id.tv_descrb2)
+        val d_descrb2 = theView.findViewById<TextView>(R.id.tv_descrb2)
+        val d_descrb3= theView.findViewById<TextView>(R.id.tv_descrb3)
 
         // Set Animation
 
