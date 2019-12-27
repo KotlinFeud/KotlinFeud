@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
@@ -45,8 +46,11 @@ class GameOverFragment : BaseFragment() {
             startNewGame()
         }
 
+        val stb = AnimationUtils.loadAnimation(context,R.anim.stb)
 
+        val game_over = theView.findViewById<TextView>(R.id.tvGameOver1)
 
+        game_over.startAnimation(stb)
         return theView
     }
 
