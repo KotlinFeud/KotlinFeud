@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
@@ -45,7 +46,20 @@ class GameOverFragment : BaseFragment() {
             startNewGame()
         }
 
+        //declare animation
+        val stb = AnimationUtils.loadAnimation(context,R.anim.stb)
+        val btt1 = AnimationUtils.loadAnimation(context,R.anim.btt)
+        val btt2 = AnimationUtils.loadAnimation(context,R.anim.btt2)
 
+        //initialized animation
+        val game_over = theView.findViewById<TextView>(R.id.tvGameOver1)
+        val s_core= theView.findViewById<TextView>(R.id.tv_score)
+        val p_again= theView.findViewById<TextView>(R.id.btn1)
+
+        //set animation
+        game_over.startAnimation(stb)
+        s_core.startAnimation(btt1)
+        p_again.startAnimation(btt2)
 
         return theView
     }
