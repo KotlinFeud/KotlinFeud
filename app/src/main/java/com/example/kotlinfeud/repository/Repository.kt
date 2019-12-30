@@ -39,16 +39,7 @@ object Repository {
             "Animation",
             "Architecture"
         )
-<<<<<<< HEAD
-//        val questionE = Question(
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            ""
-//        )
-=======
+
         val questionE = Question(
             "What does 'SDK' stand for?",
             "Standard Development Kit",
@@ -228,11 +219,6 @@ object Repository {
             "public"
         )
 
-
-
-
-
->>>>>>> master
 
         questionlist.add(questionA)
         questionlist.add(questionB)
