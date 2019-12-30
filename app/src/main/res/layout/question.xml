@@ -32,7 +32,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </ImageView>
-
+        <TextView
+            android:id="@+id/gamecounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score:"
+            android:gravity="left" />
         <TextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
@@ -45,6 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.cardview.widget.CardView>
 
@@ -149,10 +155,8 @@
         android:id="@+id/btn_submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_blue_A700"
         android:gravity="center"
         android:text="Submit"
-        android:textColor="@color/md_grey_50"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

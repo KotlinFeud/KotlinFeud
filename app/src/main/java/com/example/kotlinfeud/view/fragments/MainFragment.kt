@@ -1,16 +1,14 @@
 package com.example.kotlinfeud.view.fragments
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.startgame_activity.view.*
 
 class MainFragment : BaseFragment() {
 
@@ -29,6 +27,24 @@ class MainFragment : BaseFragment() {
         startGame.setOnClickListener {
             startGame()
         }
+
+        //Declared Animation
+        val ttb = AnimationUtils.loadAnimation(context,R.anim.ttb)
+        val btt = AnimationUtils.loadAnimation(context,R.anim.btt)
+        val btt2 = AnimationUtils.loadAnimation(context,R.anim.btt2)
+        val btt3 = AnimationUtils.loadAnimation(context,R.anim.btt3)
+
+        val h_title = theView.findViewById<TextView>(R.id.tv_kotlinFued)
+        val d_descrb = theView.findViewById<TextView>(R.id.tv_descrb1)
+        val d_descrb2 = theView.findViewById<TextView>(R.id.tv_descrb2)
+        val d_descrb3= theView.findViewById<TextView>(R.id.tv_descrb3)
+
+        // Set Animation
+
+        h_title.startAnimation(ttb)
+        d_descrb.startAnimation(btt)
+        d_descrb2.startAnimation(btt2)
+        d_descrb3.startAnimation(btt3)
         return theView
     }
 

@@ -15,6 +15,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var playerWon:Boolean = false
 
 
+
+    //region Game play functions
     fun startNewGame(): Question {
         score.value = 0
         populateQuestionList()
@@ -39,14 +41,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return score.value!!
     }
 
-
     private fun populateQuestionList(): ArrayList<Question> {
         questionList.value = Repository.getGameQuestions()
         return questionList.value!!
     }
 
     fun incrementScore() {
-        score.value = score.value!!.plus(1)
+        score.value = (score.value)?.plus(1)
     }
+    //endregion
 
+    //Todo change the start game function to create a new game each time
+    //Todo make a function to retrieve a list of all games played
+
+
+    //region All point to the Repository functions with the same name
+    //Todo make a function to make a player object
+    //Todo make a function to save a player object
+    //Todo make a function to edit a player object
+    //Todo make a functio to delete a player object
+
+    //Todo make a function to save a game object
+    //Todo make a function to delete a game object
+    //Todo make a function to pair a game object with a player object.
+    //endregion
 }
