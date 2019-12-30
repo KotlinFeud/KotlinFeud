@@ -59,7 +59,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     //Todo make a function to make a player object
     //Todo make a function to save a player object
     //Todo make a function to edit a player object
-    //Todo make a functio to delete a player object
+    //Todo make a function to delete a player object
 
     //Todo make a function to save a game object
     //Todo make a function to delete a game object
