@@ -246,6 +246,7 @@ object Repository {
         questionlist.add(questionY)
         questionlist.add(questionZ)
 
+        questionlist.shuffle()
 
         return questionlist
 
