@@ -39,6 +39,7 @@ object Repository {
             "Animation",
             "Architecture"
         )
+
         val questionE = Question(
             "What does 'SDK' stand for?",
             "Standard Development Kit",
@@ -410,12 +411,6 @@ object Repository {
             "Git pull "
         )
 
-
-
-
-
-
-
         questionlist.add(questionA)
         questionlist.add(questionB)
         questionlist.add(questionC)
@@ -467,6 +462,7 @@ object Repository {
         questionlist.add(questionA24)
 
 
+        questionlist.shuffle()
 
         return questionlist
 

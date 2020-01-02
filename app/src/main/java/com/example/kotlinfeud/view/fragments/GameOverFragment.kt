@@ -10,8 +10,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
-import kotlinx.android.synthetic.main.fragment_game_over.*
-import kotlinx.android.synthetic.main.fragment_game_over.view.*
 
 class GameOverFragment : BaseFragment() {
 
@@ -54,7 +52,7 @@ class GameOverFragment : BaseFragment() {
         //initialized animation
         val game_over = theView.findViewById<TextView>(R.id.tvGameOver1)
         val s_core= theView.findViewById<TextView>(R.id.tv_score)
-        val p_again= theView.findViewById<TextView>(R.id.btn1)
+        val p_again= theView.findViewById<TextView>(R.id.play_again)
 
         //set animation
         game_over.startAnimation(stb)
