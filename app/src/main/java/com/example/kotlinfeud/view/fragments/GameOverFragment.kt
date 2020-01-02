@@ -52,7 +52,11 @@ class GameOverFragment : BaseFragment() {
         //initialized animation
         val game_over = theView.findViewById<TextView>(R.id.tvGameOver1)
         val s_core= theView.findViewById<TextView>(R.id.tv_score)
+<<<<<<< HEAD
         val p_again= theView.findViewById<TextView>(R.id.tv_playAgain)
+=======
+        val p_again= theView.findViewById<TextView>(R.id.play_again)
+>>>>>>> master
 
         //set animation
         game_over.startAnimation(stb)

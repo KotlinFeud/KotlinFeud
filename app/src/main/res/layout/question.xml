@@ -15,8 +15,10 @@
         android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="@id/h_guide_top"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         card_view:cardCornerRadius="2dp"
         card_view:contentPadding="10dp">
 
@@ -32,12 +34,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </ImageView>
+
         <TextView
             android:id="@+id/gamecounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score:"
-            android:gravity="left" />
+            android:gravity="left"
+            android:text="Score:" />
+
         <TextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
@@ -70,11 +74,13 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/md_grey_50"
             android:gravity="center"
-            android:padding="20dp"
             android:hint="Answer 1"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:text="Answer A"
             android:textColor="@color/md_grey_50"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/rb_answer2"
@@ -82,8 +88,9 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/md_grey_50"
             android:gravity="center"
-            android:padding="20dp"
             android:hint="Answer 2"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:text="Answer B"
             android:textColor="@color/md_grey_50"
             android:textSize="20sp" />
@@ -93,9 +100,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/md_grey_50"
-            android:padding="20dp"
             android:gravity="center"
             android:hint="Answer 3"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:text="Answer C"
             android:textColor="@color/md_grey_50"
             android:textSize="20sp" />
@@ -106,8 +114,9 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/md_grey_50"
             android:gravity="center"
-            android:padding="20dp"
             android:hint="Answer 4"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:text="Answer D"
             android:textColor="@color/md_grey_50"
             android:textSize="20sp" />
@@ -170,14 +179,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".4" />
+        app:layout_constraintGuide_percent=".35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/h_guide_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".90" />
+        app:layout_constraintGuide_percent=".92" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
