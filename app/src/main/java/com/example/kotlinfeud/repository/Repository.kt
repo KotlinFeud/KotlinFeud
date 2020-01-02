@@ -219,7 +219,7 @@ object Repository {
             "Public"
         )
         val questionA1= Question(
-            "What are Kotlin coroutines?",
+            "What are Kotlin \n coroutines?",
             "That's how the automatically generated methods hashCode() and equals() in data classes are called",
             "It's Kotlin's term for class methods",
             "These functions which accept other functions as arguments or return them",
@@ -411,6 +411,7 @@ object Repository {
             "Git pull "
         )
 
+        questionlist.add(questionA1)
         questionlist.add(questionA)
         questionlist.add(questionB)
         questionlist.add(questionC)
@@ -436,7 +437,7 @@ object Repository {
         questionlist.add(questionX)
         questionlist.add(questionY)
         questionlist.add(questionZ)
-        questionlist.add(questionA1)
+
         questionlist.add(questionA2)
         questionlist.add(questionA3)
         questionlist.add(questionA4)
