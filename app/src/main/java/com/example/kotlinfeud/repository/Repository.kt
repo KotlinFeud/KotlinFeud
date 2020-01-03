@@ -1,9 +1,14 @@
 package com.example.kotlinfeud.repository
 
+import android.content.Context
+import androidx.room.Room
+import com.example.kotlinfeud.model.GameDao
+import com.example.kotlinfeud.model.GameDatabase
 import com.example.kotlinfeud.model.Question
 
 object Repository {
     lateinit var questionlist: ArrayList<Question>
+
     fun getGameQuestions(): ArrayList<Question> {
         questionlist = ArrayList()
 
@@ -66,7 +71,7 @@ object Repository {
             "Mimosa",
             "Mockito"
         )
-        val questionH= Question(
+        val questionH = Question(
             "What testing framework do you use to test logic?",
             "Expresso",
             "Latte",
@@ -74,7 +79,7 @@ object Repository {
             "Mimosa",
             "Mockito"
         )
-        val questionI= Question(
+        val questionI = Question(
             "How many different stages of activity lifecycle?",
             "5",
             "6",
@@ -82,7 +87,7 @@ object Repository {
             "8",
             "7"
         )
-        val questionJ= Question(
+        val questionJ = Question(
             "How many different types of intents are there?",
             "1",
             "2",
@@ -90,7 +95,7 @@ object Repository {
             "4",
             "2"
         )
-        val questionK= Question(
+        val questionK = Question(
             " Is a support library that allows you to bind UI components in your layouts to data sources in your app?",
             "Retrofit",
             "RxJava",
@@ -98,7 +103,7 @@ object Repository {
             "UI Binding",
             "Data Binding"
         )
-        val questionL= Question(
+        val questionL = Question(
             " Is a support library that allows you to bind UI components in your layouts to data sources in your app?",
             "Retrofit",
             "RxJava",
@@ -106,7 +111,7 @@ object Repository {
             "UI Binding",
             "Data Binding"
         )
-        val questionM= Question(
+        val questionM = Question(
             "Var is what?",
             "Immutable",
             "Static",
@@ -114,7 +119,7 @@ object Repository {
             "Mutable",
             "Mutable"
         )
-        val questionN= Question(
+        val questionN = Question(
             "Val is what?",
             "Immutable",
             "Static",
@@ -122,7 +127,7 @@ object Repository {
             "Mutable",
             "Immutable"
         )
-        val questionO= Question(
+        val questionO = Question(
             "Kotlin is developed by?",
             "Google",
             "Jetbrains",
@@ -130,7 +135,7 @@ object Repository {
             "Adobe",
             "Jetbrains"
         )
-        val questionP= Question(
+        val questionP = Question(
             "Which of the following is used to handle null exceptions in Kotlin?",
             "Range",
             "Sealed Class",
@@ -138,7 +143,7 @@ object Repository {
             "Lambda function",
             "Elvis Operator"
         )
-        val questionQ= Question(
+        val questionQ = Question(
             "Which file extension is used to save Kotlin files?",
             ".java",
             ".kot",
@@ -146,7 +151,7 @@ object Repository {
             ".android",
             ".kt or .kts"
         )
-        val questionR= Question(
+        val questionR = Question(
             "All classes in Kotlin classes are by default?",
             "Public",
             "Final",
@@ -162,7 +167,7 @@ object Repository {
             "None of the above",
             "runs background operations without UI interaction"
         )
-        val questionT= Question(
+        val questionT = Question(
             "Which keyword is used by classes to implement an interface?",
             "Import",
             "Implements",
@@ -170,7 +175,7 @@ object Repository {
             "Abstract",
             "Implements"
         )
-        val questionU= Question(
+        val questionU = Question(
             "Which method is used in thread class to start the execution of the thread?",
             "Public void start()",
             "Public void run()",
@@ -178,7 +183,7 @@ object Repository {
             "Public void launch()",
             "Public void ()"
         )
-        val questionV= Question(
+        val questionV = Question(
             "Which class cannot be instantiated?",
             "Abstract class",
             "Static class",
@@ -186,7 +191,7 @@ object Repository {
             "None of the above",
             "Abstract class"
         )
-        val questionW= Question(
+        val questionW = Question(
             "Which is a non-static method having the same name as its class?",
             "Field",
             "Method",
@@ -194,7 +199,7 @@ object Repository {
             "None of the above",
             "Constructor"
         )
-        val questionX= Question(
+        val questionX = Question(
             "Which mechanism is provided to handle the runtime errors so that normal flow of the application can be maintained?",
             "Exception Handling",
             "String Handling",
@@ -210,7 +215,7 @@ object Repository {
             "Naming field",
             "Final field"
         )
-        val questionZ= Question(
+        val questionZ = Question(
             "In Which the access modifier means that the field can be accessed by all the classes in your app?",
             "Private",
             "Public",
@@ -469,17 +474,11 @@ object Repository {
 
     }
 
-    //TOdo make a function to add a new game to the database
-    //Todo make a function to retrieve a list of all games played
-    //Todo make a function to remove a game from the database
-
-    //Todo make a function to make a player object
-    //Todo make a function to save a player object
-    //Todo make a function to edit a player object
-    //Todo make a functio to delete a player object
-
-    //Todo make a function to save a game object
-    //Todo make a function to delete a game object
-    //Todo make a function to pair a game object with a player object.
+    //COMPLETE make a function to retrieve a list of all games played
+    fun getGameDao(context: Context): GameDao {
+        return Room.databaseBuilder(context, GameDatabase::class.java, "GameDB")
+            .build()
+            .gameDao
+    }
 
 }
