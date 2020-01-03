@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.navigation.fragment.findNavController
+import com.example.kotlinfeud.Extensions.adjustToText
 import com.example.kotlinfeud.R
 import com.example.kotlinfeud.model.Question
 import kotlinx.android.synthetic.main.question.*
@@ -21,10 +22,10 @@ class QuestionsFragment : BaseFragment() {
 
     //Question Views
     lateinit var tvQuestion: TextView
-    lateinit var ansA: TextView
-    lateinit var ansB: TextView
-    lateinit var ansC: TextView
-    lateinit var ansD: TextView
+    lateinit var ansA: RadioButton
+    lateinit var ansB: RadioButton
+    lateinit var ansC: RadioButton
+    lateinit var ansD: RadioButton
     lateinit var score: TextView
 
     //delcare animation
@@ -59,6 +60,7 @@ class QuestionsFragment : BaseFragment() {
         currentQuestion = viewModel.startNewGame()
         populateQuestion(currentQuestion)
 
+        radio = ansA
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             radio = theView.findViewById(checkedId)
         }
@@ -91,11 +93,11 @@ class QuestionsFragment : BaseFragment() {
         ltr4 = AnimationUtils.loadAnimation(context, R.anim.ltr4)
 
         //initialize animation
-        tvQuestion = theView.findViewById<TextView>(R.id.tv_question)
-        ansA = theView.findViewById<TextView>(R.id.rb_answer1)
-        ansB = theView.findViewById<TextView>(R.id.rb_answer2)
-        ansC = theView.findViewById<TextView>(R.id.rb_answer3)
-        ansD = theView.findViewById<TextView>(R.id.rb_answer4)
+        tvQuestion = theView.findViewById(R.id.tv_question)
+        ansA = theView.findViewById(R.id.rb_answer1)
+        ansB = theView.findViewById(R.id.rb_answer2)
+        ansC = theView.findViewById(R.id.rb_answer3)
+        ansD = theView.findViewById(R.id.rb_answer4)
         //set animation
         tvQuestion.startAnimation(stb)
         ansA.startAnimation(ltr)
@@ -121,13 +123,14 @@ class QuestionsFragment : BaseFragment() {
 
     }
 
+
     private fun populateQuestion(question: Question) {
         setAnim(theView)
-        tvQuestion.text = question.questionText
-        ansA.text = question.answerA
-        ansB.text = question.answerB
-        ansC.text = question.answerC
-        ansD.text = question.answerD
+        tvQuestion.adjustToText(question.questionText)
+        ansA.adjustToText(question.answerA!!)
+        ansB.adjustToText(question.answerB!!)
+        ansC.adjustToText(question.answerC!!)
+        ansD.adjustToText(question.answerD!!)
     }
 
 
