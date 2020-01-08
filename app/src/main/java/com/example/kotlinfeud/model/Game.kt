@@ -1,3 +1,13 @@
 package com.example.kotlinfeud.model
 
-data class Game (var id:Int, var player: Player,var currentScore:Int)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class Game(
+    var playerId: Int,
+    var score: Int
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">KotlinFeud</string>
     <string name="scoreText">Score:</string>
+    <string name="play_again">Play Again?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="noGames">No games have been added yet</string>
+    <string name="playerName">Player Name</string>
+    <string name="blank_score">Score: 0</string>
+    <string name="selectPlayer">Select a player</string>
+    <string name="question">Question</string>
+    <string name="name">Name:</string>
 </resources>

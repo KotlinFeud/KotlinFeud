@@ -1,9 +1,14 @@
 package com.example.kotlinfeud.repository
 
+import android.content.Context
+import androidx.room.Room
+import com.example.kotlinfeud.model.GameDao
+import com.example.kotlinfeud.model.GameDatabase
 import com.example.kotlinfeud.model.Question
 
 object Repository {
     lateinit var questionlist: ArrayList<Question>
+
     fun getGameQuestions(): ArrayList<Question> {
         questionlist = ArrayList()
 
@@ -39,6 +44,7 @@ object Repository {
             "Animation",
             "Architecture"
         )
+
         val questionE = Question(
             "What does 'SDK' stand for?",
             "Standard Development Kit",
@@ -65,15 +71,16 @@ object Repository {
             "Mimosa",
             "Mockito"
         )
+
         val questionH= Question(
-            "What testing framework do you use to test logic?",
-            "Expresso",
-            "Latte",
-            "Mockito",
-            "Mimosa",
-            "Mockito"
+            "What is the official language of Android?",
+            "Java",
+            "Swift",
+            "Kotlin",
+            "Python",
+            "Kotlin"
         )
-        val questionI= Question(
+        val questionI = Question(
             "How many different stages of activity lifecycle?",
             "5",
             "6",
@@ -81,7 +88,7 @@ object Repository {
             "8",
             "7"
         )
-        val questionJ= Question(
+        val questionJ = Question(
             "How many different types of intents are there?",
             "1",
             "2",
@@ -89,7 +96,7 @@ object Repository {
             "4",
             "2"
         )
-        val questionK= Question(
+        val questionK = Question(
             " Is a support library that allows you to bind UI components in your layouts to data sources in your app?",
             "Retrofit",
             "RxJava",
@@ -97,31 +104,32 @@ object Repository {
             "UI Binding",
             "Data Binding"
         )
+
         val questionL= Question(
-            " Is a support library that allows you to bind UI components in your layouts to data sources in your app?",
-            "Retrofit",
-            "RxJava",
-            "Data Binding",
-            "UI Binding",
-            "Data Binding"
+            "Which one is an access modifier?",
+            "Private",
+            "Public",
+            "None of the above",
+            "Both A and B",
+            "Both A and B"
         )
-        val questionM= Question(
+        val questionM = Question(
             "Var is what?",
             "Immutable",
             "Static",
-            "Nullable",
+            "Extendable",
             "Mutable",
             "Mutable"
         )
-        val questionN= Question(
+        val questionN = Question(
             "Val is what?",
             "Immutable",
             "Static",
-            "Nullable",
+            "Extendable",
             "Mutable",
             "Immutable"
         )
-        val questionO= Question(
+        val questionO = Question(
             "Kotlin is developed by?",
             "Google",
             "Jetbrains",
@@ -129,7 +137,7 @@ object Repository {
             "Adobe",
             "Jetbrains"
         )
-        val questionP= Question(
+        val questionP = Question(
             "Which of the following is used to handle null exceptions in Kotlin?",
             "Range",
             "Sealed Class",
@@ -137,47 +145,47 @@ object Repository {
             "Lambda function",
             "Elvis Operator"
         )
-        val questionQ= Question(
+        val questionQ = Question(
             "Which file extension is used to save Kotlin files?",
             ".java",
             ".kot",
             ".kt or .kts",
             ".android",
-            ".kt or kts"
+            ".kt or .kts"
         )
-        val questionR= Question(
+        val questionR = Question(
             "All classes in Kotlin classes are by default?",
-            "public",
-            "final",
-            "sealed",
-            "sealed",
-            "final"
+            "Public",
+            "Final",
+            "Sealed",
+            "Private",
+            "Final"
         )
         val questionS= Question(
-            "All classes in Kotlin classes are by default?",
-            "public",
-            "final",
-            "sealed",
-            "sealed",
-            "final"
+            "What is a service in android?",
+            "Runs background operations with UI interaction",
+            "Runs background operations without UI interaction",
+            "Both A and B",
+            "None of the above",
+            "Runs background operations without UI interaction"
         )
-        val questionT= Question(
+        val questionT = Question(
             "Which keyword is used by classes to implement an interface?",
-            "import",
-            "implements",
-            "instance of",
-            "abstract",
-            "implements"
+            "Import",
+            "Implements",
+            "Instance of",
+            "Abstract",
+            "Implements"
         )
-        val questionU= Question(
+        val questionU = Question(
             "Which method is used in thread class to start the execution of the thread?",
-            "public void start()",
-            "public void run()",
-            "public void execute()",
-            "public void launch()",
-            "public void ()"
+            "Public void start()",
+            "Public void run()",
+            "Public void execute()",
+            "Public void launch()",
+            "Public void start()"
         )
-        val questionV= Question(
+        val questionV = Question(
             "Which class cannot be instantiated?",
             "Abstract class",
             "Static class",
@@ -185,7 +193,7 @@ object Repository {
             "None of the above",
             "Abstract class"
         )
-        val questionW= Question(
+        val questionW = Question(
             "Which is a non-static method having the same name as its class?",
             "Field",
             "Method",
@@ -193,7 +201,7 @@ object Repository {
             "None of the above",
             "Constructor"
         )
-        val questionX= Question(
+        val questionX = Question(
             "Which mechanism is provided to handle the runtime errors so that normal flow of the application can be maintained?",
             "Exception Handling",
             "String Handling",
@@ -202,27 +210,216 @@ object Repository {
             "Exception Handling"
         )
         val questionY= Question(
-            "Which Which field cannot be changed after the object has been constructed?",
+            "Which field cannot be changed after the object has been constructed?",
             "Static field",
             "Non-static field",
             "Final field",
             "Naming field",
             "Final field"
         )
-        val questionZ= Question(
+        val questionZ = Question(
             "In Which the access modifier means that the field can be accessed by all the classes in your app?",
-            "private",
-            "public",
-            "package",
-            "protected",
-            "public"
+            "Private",
+            "Public",
+            "Package",
+            "Protected",
+            "Public"
+        )
+        val questionA1= Question(
+            "What are Kotlin \n coroutines?",
+            "That's how the automatically generated methods hashCode() and equals() in data classes are called",
+            "It's Kotlin's term for class methods",
+            "These functions which accept other functions as arguments or return them",
+            "They provide asynchronous code without thread blocking",
+            "They provide asynchronous code without thread blocking"
+        )
+        val questionA2= Question(
+            "What is the correct way to declare a variable of integer type in Kotlin?",
+            "let i = 42",
+            "var i : int = 42",
+            "var i : Int = 42",
+            "int i = 42",
+            "var i : int = 42"
+        )
+        val questionA3= Question(
+            "What does the !! operator do?",
+            "It converts any value to a non-null type and throws an exception if the value is in fact null",
+            "It's the modulo operator in Kotlin, similar to Java's %",
+            "It compares two values for identify rather than equality",
+            "All of the above",
+            "It converts any value to a non-null type and throws an exception if the the value is in fact null"
+        )
+        val questionA4= Question(
+            "A GUI: ",
+            "uses buttons, menus, and icons",
+            "should be easy for a user to manipulate",
+            "stands for Graphic User Interaction",
+            "Both A and D",
+            "Both A and D"
+        )
+        val questionA5= Question(
+            "An object is composed of:",
+            "properties",
+            "methods",
+            "events",
+            "All of the above",
+            "All of the above"
+        )
+        val questionA6= Question(
+            "Official IDE released for android development is called?",
+            "Eclipse",
+            "Net Beans",
+            "Android Studio",
+            "Java",
+            "Android Studio"
+        )
+        val questionA7= Question(
+            "What is an activity in Android?",
+            "Activity performs the actions on the screen",
+            "Manage the Application content",
+            "Screen UI",
+            "None of the above",
+            "Activity performs the actions on the screen"
+        )
+        val questionA8= Question(
+            "What is the difference between margin and padding in android layout",
+            "Margin is specifying the extra left on all four sides in layout",
+            "Padding is used to offset the content of a view by specific px or dp",
+            "Both A and B",
+            "None of the above",
+            "Both A and B"
+        )
+        val questionA9= Question(
+            "What is the use of content provider in android?",
+            "To send the data from an application to another application",
+            "To store the data in a database",
+            "To share the data between applications",
+            "None of the above",
+            "To share the data between applications"
+        )
+        val questionA10= Question(
+            "What is the application class in android?",
+            "A class that can create only an object",
+            "Anonymous",
+            "Java class",
+            "Base class for all classes",
+            "Base class for all classes"
+        )
+        val questionA11= Question(
+            "What is contained within the manifest xml file?",
+            "The permissions the app requires",
+            "The list of strings use in the app",
+            "The source code",
+            "None of the above",
+            "The permissions the app requires"
+        )
+        val questionA12= Question(
+            "What is contained within the Layout xml file?",
+            "Orientations and layouts that specify what the display looks like",
+            "The permissions required by the app",
+            "The strings used in the app",
+            "The code which is compiled to run the app",
+            "Orientations and layouts that specify what the display looks like"
+        )
+        val questionA13= Question(
+            "To create an emulator, you need an AVD, What does it stand for?",
+            "Android Virtual Display",
+            "Android Virtual Device",
+            "Active Virtual Device",
+            "Application Virtual Display",
+            "Android Virtual Device"
+        )
+        val questionA14= Question(
+            "Which file specifies the layout of your screen",
+            "Layout file",
+            "Manifest file",
+            "Strings XML",
+            "R file",
+            "Layout file"
+        )
+        val questionA15= Question(
+            " Uploads all local branch commits to GitHub ",
+            "git push",
+            "git pull",
+            "git merge",
+            "git fetch",
+            "git push"
+        )
+        val questionA16= Question(
+            "means you can align views one by one (vertically/ horizontally)",
+            "Frame Layout",
+            "Linear Layout",
+            "Relative Layout",
+            "Constraint Layout",
+            "Linear Layout"
+        )
+        val questionA17= Question(
+            "How many key parts does the Navigation component consist of?",
+            "4",
+            "3",
+            "2",
+            "1",
+            "3"
+        )
+        val questionA18= Question(
+            " ​is to optimize and flatten the view hierarchy of your layouts/avoid nesting",
+            "Frame Layout",
+            "Guidelines",
+            "Linear Layout",
+            "Constraint Layout",
+            "Constraint Layout"
+        )
+        val questionA19= Question(
+            "Which of the following is NOT a state in the lifecycle of a service",
+            "Starting",
+            "Running",
+            "Destroyed",
+            "Paused",
+            "Paused"
+        )
+        val questionA20= Question(
+            "Intents: ",
+            "Are messages that are sent among major building blocks",
+            "Trigger activities to being, services to start or stop, or broadcast",
+            "Are asynchronous",
+            "All of these",
+            "All of these"
+        )
+        val questionA21= Question(
+            "When the activity is not in focus, but still visible on the screen it is in?",
+            "Running state",
+            "Paused state",
+            "Stopped state",
+            "Destroyed state",
+            "Paused State"
+        )
+        val questionA22= Question(
+            "What built-in database is Android shipped with?",
+            "SQLite",
+            "Apache",
+            "MySQL",
+            "Oracle",
+            "SQLite"
+        )
+        val questionA23= Question(
+            "Status data will be exposed to the rest of the Android system via:",
+            "Intents",
+            "A content provider",
+            "Network receivers",
+            "Altering permissions",
+            "A content provider"
+        )
+        val questionA24= Question(
+            "Updates your current local working branch with all new commits from the corresponding remote branch on GitHub",
+            "Git commit",
+            "Git fetch",
+            "Git pull",
+            "Git push",
+            "Git pull"
         )
 
 
-
-
-
-
+        questionlist.add(questionA1)
         questionlist.add(questionA)
         questionlist.add(questionB)
         questionlist.add(questionC)
@@ -234,6 +431,7 @@ object Repository {
         questionlist.add(questionI)
         questionlist.add(questionJ)
         questionlist.add(questionK)
+        questionlist.add(questionL)
         questionlist.add(questionM)
         questionlist.add(questionN)
         questionlist.add(questionO)
@@ -249,22 +447,43 @@ object Repository {
         questionlist.add(questionY)
         questionlist.add(questionZ)
 
+        questionlist.add(questionA2)
+        questionlist.add(questionA3)
+        questionlist.add(questionA4)
+        questionlist.add(questionA5)
+        questionlist.add(questionA6)
+        questionlist.add(questionA7)
+        questionlist.add(questionA8)
+        questionlist.add(questionA9)
+        questionlist.add(questionA10)
+        questionlist.add(questionA11)
+        questionlist.add(questionA12)
+        questionlist.add(questionA13)
+        questionlist.add(questionA14)
+        questionlist.add(questionA15)
+        questionlist.add(questionA16)
+        questionlist.add(questionA17)
+        questionlist.add(questionA18)
+        questionlist.add(questionA19)
+        questionlist.add(questionA20)
+        questionlist.add(questionA21)
+        questionlist.add(questionA22)
+        questionlist.add(questionA23)
+        questionlist.add(questionA24)
+
+
+        questionlist.shuffle()
 
         return questionlist
 
     }
+    //COMPLETE make a function to retrieve a list of all games played
+    fun getGameDao(context: Context): GameDao {
+        return Room.databaseBuilder(context, GameDatabase::class.java, "GameDB")
+            .allowMainThreadQueries()
+            .build()
+            .gameDao
+    }
 
-    //TOdo make a function to add a new game to the database
-    //Todo make a function to retrieve a list of all games played
-    //Todo make a function to remove a game from the database
-
-    //Todo make a function to make a player object
-    //Todo make a function to save a player object
-    //Todo make a function to edit a player object
-    //Todo make a functio to delete a player object
-
-    //Todo make a function to save a game object
-    //Todo make a function to delete a game object
-    //Todo make a function to pair a game object with a player object.
 
 }
