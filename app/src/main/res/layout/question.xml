@@ -1,194 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/md_grey_900">
+<layout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/h_guide_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        card_view:cardCornerRadius="2dp"
-        card_view:contentPadding="10dp">
+    <data>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="image"
-            app:layout_constraintBottom_toTopOf="@+id/h_guide_top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <variable
+            name="viewModel"
+            type="com.example.kotlinfeud.viewModel.MainViewModel" />
+    </data>
 
-        </ImageView>
-
-        <TextView
-            android:id="@+id/gamecounter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Score:" />
-
-        <TextView
-            android:id="@+id/tv_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="Question"
-            android:text="Question"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/h_guide_top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <RadioGroup
-        android:id="@+id/radio_g"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/h_guide_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_guide_top">
+        android:layout_height="match_parent"
+        android:background="@color/md_grey_900">
 
-        <RadioButton
-            android:id="@+id/rb_answer1"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/h_guide_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@{viewModel.currentPlayer.name}" />
+
+            <TextView
+                android:id="@+id/gameScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@{viewModel.score}" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/question"
+                android:textSize="20sp" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <RadioGroup
+            android:id="@+id/radio_g"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/md_grey_50"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:hint="Answer 1"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Answer A"
-            android:textColor="@color/md_grey_50"
+            app:layout_constraintBottom_toTopOf="@id/h_guide_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/h_guide_top">
+
+            <RadioButton
+                android:id="@+id/rb_answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/md_grey_50"
+                android:checked="true"
+                android:gravity="center"
+                android:hint="Answer 1"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Answer A"
+                android:textColor="@color/md_grey_50"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rb_answer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/md_grey_50"
+                android:gravity="center"
+                android:hint="Answer 2"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Answer B"
+                android:textColor="@color/md_grey_50"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rb_answer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/md_grey_50"
+                android:gravity="center"
+                android:hint="Answer 3"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Answer C"
+                android:textColor="@color/md_grey_50"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rb_answer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/md_grey_50"
+                android:gravity="center"
+                android:hint="Answer 4"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Answer D"
+                android:textColor="@color/md_grey_50"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <!--  <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/radio_c"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent">
+
+              &lt;!&ndash;        Radio Group Constraint Guidelines    &ndash;&gt;
+              <androidx.constraintlayout.widget.Guideline
+                  android:id="@+id/r_guide_top"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  app:layout_constraintGuide_percent="0" />
+
+              <androidx.constraintlayout.widget.Guideline
+                  android:id="@+id/r_guide_center"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  app:layout_constraintGuide_percent=".50" />
+
+              <androidx.constraintlayout.widget.Guideline
+                  android:id="@+id/r_guide_bottom"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  app:layout_constraintGuide_percent="1.0" />
+
+              <androidx.constraintlayout.widget.Guideline
+                  android:id="@+id/rv_guide_center"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  app:layout_constraintGuide_percent=".5" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      -->
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Submit"
             android:textSize="20sp"
-            android:checked="true"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/h_guide_bottom" />
 
-        <RadioButton
-            android:id="@+id/rb_answer2"
-            android:layout_width="match_parent"
+        <!--    Guidelines   -->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guide_top"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/md_grey_50"
-            android:gravity="center"
-            android:hint="Answer 2"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Answer B"
-            android:textColor="@color/md_grey_50"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".35" />
 
-        <RadioButton
-            android:id="@+id/rb_answer3"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guide_bottom"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/md_grey_50"
-            android:gravity="center"
-            android:hint="Answer 3"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Answer C"
-            android:textColor="@color/md_grey_50"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/rb_answer4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/md_grey_50"
-            android:gravity="center"
-            android:hint="Answer 4"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Answer D"
-            android:textColor="@color/md_grey_50"
-            android:textSize="20sp" />
-    </RadioGroup>
-
-    <!--  <androidx.constraintlayout.widget.ConstraintLayout
-          android:id="@+id/radio_c"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent">
-
-          &lt;!&ndash;        Radio Group Constraint Guidelines    &ndash;&gt;
-          <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/r_guide_top"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              app:layout_constraintGuide_percent="0" />
-
-          <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/r_guide_center"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              app:layout_constraintGuide_percent=".50" />
-
-          <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/r_guide_bottom"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              app:layout_constraintGuide_percent="1.0" />
-
-          <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/rv_guide_center"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              app:layout_constraintGuide_percent=".5" />
-      </androidx.constraintlayout.widget.ConstraintLayout>
-  -->
-
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Submit"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/h_guide_bottom" />
-
-    <!--    Guidelines   -->
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guide_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".35" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guide_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".92" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".92" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
