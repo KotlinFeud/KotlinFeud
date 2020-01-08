@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
 import com.example.kotlinfeud.R
 
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment(){
 
+    val PLAYER_LIST_TAG = "Player List"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,7 +25,7 @@ class MainFragment : BaseFragment() {
         val startGame: Button = theView.findViewById(R.id.button_startGame)
 
         startGame.setOnClickListener {
-            startGame()
+            showSelectPlayerDialog()
         }
 
         //Declared Animation
@@ -48,10 +48,12 @@ class MainFragment : BaseFragment() {
         return theView
     }
 
-    private fun startGame() {
-        val action = MainFragmentDirections.actionMainFragmentToQuestionsFragment()
-        findNavController().navigate(action)
+    private fun showSelectPlayerDialog(){
+        val selectPlayerDialog = SelectPlayerDialog()
+        selectPlayerDialog.show(fragmentManager!!, PLAYER_LIST_TAG)
     }
+
+
 
 
 }
