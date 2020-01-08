@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Player(
-    @PrimaryKey
-    var id:Int,
     var name:String,
     var highscore:Int
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int=0
+}

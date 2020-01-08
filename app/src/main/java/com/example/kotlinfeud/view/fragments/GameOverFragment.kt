@@ -1,22 +1,24 @@
 package com.example.kotlinfeud.view.fragments
 
 import android.annotation.SuppressLint
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowId
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.Loader
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinfeud.R
-import com.example.kotlinfeud.loaders.GameLoader
+import com.example.kotlinfeud.adapters.LeaderboardAdapter
+import com.example.kotlinfeud.repository.Repository
 
-class GameOverFragment : BaseFragment(), LoaderManager.LoaderCallbacks<GameLoader> {
+class GameOverFragment : BaseFragment() {
 
     companion object {
         fun newInstance(): GameOverFragment {
@@ -26,7 +28,7 @@ class GameOverFragment : BaseFragment(), LoaderManager.LoaderCallbacks<GameLoade
 
     lateinit var btnNo: Button
     lateinit var btnYes: Button
-    lateinit var rvLeaderboard:RecyclerView
+    lateinit var rvLeaderboard: RecyclerView
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -35,25 +37,17 @@ class GameOverFragment : BaseFragment(), LoaderManager.LoaderCallbacks<GameLoade
         savedInstanceState: Bundle?
     ): View? {
         val theView = inflater.inflate(R.layout.fragment_game_over, container, false)
-
         initializeViews(theView)
         startAnimation(theView)
-        fillLeaderBoard(theView)
-
-
         return theView
     }
 
-    private fun fillLeaderBoard(theView: View) {
-        //Use the game loader class to load a list of  games from database asynchronously
-
-        val leaderBoardTask =object : AsyncTask<Unit,Unit,Unit>(){
-            override fun doInBackground(vararg p0: Unit?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-        }
-
+    private fun getPlayerInfo(playerId: Int) {
+        Repository.getGameDao(context!!).getPlayerData(playerId).observe(this, Observer {
+            rvLeaderboard.adapter
+        })
     }
+
 
     private fun initializeViews(theView: View) {
         //initialize score
@@ -61,6 +55,18 @@ class GameOverFragment : BaseFragment(), LoaderManager.LoaderCallbacks<GameLoade
         //declare buttons
         btnNo = theView.findViewById(R.id.btnNo)
         btnYes = theView.findViewById(R.id.btnYes)
+        rvLeaderboard = theView.findViewById(R.id.rv_leaderboard)
+
+        val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        rvLeaderboard.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        rvLeaderboard.addItemDecoration(itemDecoration)
+
+        val leaderAdapter = LeaderboardAdapter(
+            viewModel.gameList.value!!,
+            viewModel.playerList.value!!
+        )
+        rvLeaderboard.adapter = leaderAdapter
 
 
         scoreView.text =
@@ -97,15 +103,4 @@ class GameOverFragment : BaseFragment(), LoaderManager.LoaderCallbacks<GameLoade
         findNavController().navigate(action)
     }
 
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<GameLoader> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onLoadFinished(loader: Loader<GameLoader>, data: GameLoader?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onLoaderReset(loader: Loader<GameLoader>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }

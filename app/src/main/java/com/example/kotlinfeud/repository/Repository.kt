@@ -428,6 +428,7 @@ object Repository {
         questionlist.add(questionI)
         questionlist.add(questionJ)
         questionlist.add(questionK)
+        questionlist.add(questionL)
         questionlist.add(questionM)
         questionlist.add(questionN)
         questionlist.add(questionO)
@@ -477,6 +478,7 @@ object Repository {
     //COMPLETE make a function to retrieve a list of all games played
     fun getGameDao(context: Context): GameDao {
         return Room.databaseBuilder(context, GameDatabase::class.java, "GameDB")
+            .allowMainThreadQueries()
             .build()
             .gameDao
     }

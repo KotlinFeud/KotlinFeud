@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinfeud.R
 import com.example.kotlinfeud.Utils.inflate
 import com.example.kotlinfeud.model.Game
+import com.example.kotlinfeud.model.Player
+import com.example.kotlinfeud.view.activities.MainActivity
 import com.example.kotlinfeud.view.fragments.GameOverFragment
 
-class LeaderboardAdapter(var gameList: List<Game>) :
+class LeaderboardAdapter(var gameList: List<Game>, var playerList: List<Player>) :
     RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder>() {
 
     lateinit var context: Context
@@ -33,10 +35,30 @@ class LeaderboardAdapter(var gameList: List<Game>) :
             val playerName: TextView = itemView.findViewById(R.id.tv_playerName)
             val playerScore: TextView = itemView.findViewById(R.id.tv_playerScore)
 
+            val player = getPlayerFromList(thisGame.playerId)
+            playerName.text = player.name
             playerScore.text = thisGame.score.toString()
-
-
         }
     }
+
+    lateinit var player: Player
+    private fun getPlayerFromList(playerId: Int): Player {
+        playerList.forEach {
+            if (it.id == playerId)
+                player =it
+
+        }
+        /*else {
+            (context as MainActivity).viewModel.getPlayerInfo(playerId, context)
+        }*/
+
+        return player
+    }
+
+    interface leaderBoardListener {
+        fun loadPlayerInfo(player: Player)
+    }
+
+
 }
 
