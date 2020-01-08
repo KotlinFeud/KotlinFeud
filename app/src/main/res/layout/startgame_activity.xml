@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.MainActivity"
-    android:background="@color/md_grey_900">
+    android:background="@color/md_grey_900"
+    tools:context=".view.activities.MainActivity">
 
     <TextView
         android:id="@+id/tv_kotlinFued"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/md_red_500"
         android:fontFamily="@font/bangers"
         android:gravity="center"
-        android:text="Kotlin Fued"
-        android:background="@color/md_red_500"
+        android:text="Kotlin Feud"
         android:textColor="@color/md_grey_50"
-        android:textSize="95sp"
+        android:textSize="90sp"
         app:layout_constraintBottom_toTopOf="@id/t_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,24 +70,24 @@
         android:layout_height="wrap_content"
         android:text="Start Game"
         android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/d_guide"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/d_guide" />
 
-<androidx.constraintlayout.widget.Guideline
-    android:id="@+id/t_guide"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_percent=".30"/>
-<androidx.constraintlayout.widget.Guideline
-    android:id="@+id/d_guide"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_percent=".7"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/t_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".30" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/d_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
