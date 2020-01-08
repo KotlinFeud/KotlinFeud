@@ -71,13 +71,14 @@ object Repository {
             "Mimosa",
             "Mockito"
         )
-        val questionH = Question(
-            "What testing framework do you use to test logic?",
-            "Expresso",
-            "Latte",
-            "Mockito",
-            "Mimosa",
-            "Mockito"
+
+        val questionH= Question(
+            "What is the official language of Android?",
+            "Java",
+            "Swift",
+            "Kotlin",
+            "Python",
+            "Kotlin"
         )
         val questionI = Question(
             "How many different stages of activity lifecycle?",
@@ -103,19 +104,20 @@ object Repository {
             "UI Binding",
             "Data Binding"
         )
-        val questionL = Question(
-            " Is a support library that allows you to bind UI components in your layouts to data sources in your app?",
-            "Retrofit",
-            "RxJava",
-            "Data Binding",
-            "UI Binding",
-            "Data Binding"
+
+        val questionL= Question(
+            "Which one is an access modifier?",
+            "Private",
+            "Public",
+            "None of the above",
+            "Both A and B",
+            "Both A and B"
         )
         val questionM = Question(
             "Var is what?",
             "Immutable",
             "Static",
-            "Nullable",
+            "Extendable",
             "Mutable",
             "Mutable"
         )
@@ -123,7 +125,7 @@ object Repository {
             "Val is what?",
             "Immutable",
             "Static",
-            "Nullable",
+            "Extendable",
             "Mutable",
             "Immutable"
         )
@@ -165,7 +167,7 @@ object Repository {
             "Runs background operations without UI interaction",
             "Both A and B",
             "None of the above",
-            "runs background operations without UI interaction"
+            "Runs background operations without UI interaction"
         )
         val questionT = Question(
             "Which keyword is used by classes to implement an interface?",
@@ -181,7 +183,7 @@ object Repository {
             "Public void run()",
             "Public void execute()",
             "Public void launch()",
-            "Public void ()"
+            "Public void start()"
         )
         val questionV = Question(
             "Which class cannot be instantiated?",
@@ -336,36 +338,36 @@ object Repository {
             "Layout file"
         )
         val questionA15= Question(
-            "Which file specifies the layout of your screen",
-            "Layout file",
-            "Manifest file",
-            "Strings XML",
-            "R file",
-            "Layout file"
+            " Uploads all local branch commits to GitHub ",
+            "git push",
+            "git pull",
+            "git merge",
+            "git fetch",
+            "git push"
         )
         val questionA16= Question(
-            "When an activity doesn't exist in memory it is in",
-            "Starting state",
-            "Running state",
-            "Loading state",
-            "Inexistent state",
-            "Starting state"
+            "means you can align views one by one (vertically/ horizontally)",
+            "Frame Layout",
+            "Linear Layout",
+            "Relative Layout",
+            "Constraint Layout",
+            "Linear Layout"
         )
         val questionA17= Question(
-            "When an activity doesn't exist in memory it is in",
-            "Starting state",
-            "Running state",
-            "Loading state",
-            "Inexistent state",
-            "Starting state"
+            "How many key parts does the Navigation component consist of?",
+            "4",
+            "3",
+            "2",
+            "1",
+            "3"
         )
         val questionA18= Question(
-            "When an activity doesn't exist in memory it is in",
-            "Starting state",
-            "Running state",
-            "Loading state",
-            "Inexistent state",
-            "Starting state"
+            " ​is to optimize and flatten the view hierarchy of your layouts/avoid nesting",
+            "Frame Layout",
+            "Guidelines",
+            "Linear Layout",
+            "Constraint Layout",
+            "Constraint Layout"
         )
         val questionA19= Question(
             "Which of the following is NOT a state in the lifecycle of a service",
@@ -413,8 +415,9 @@ object Repository {
             "Git fetch",
             "Git pull",
             "Git push",
-            "Git pull "
+            "Git pull"
         )
+
 
         questionlist.add(questionA1)
         questionlist.add(questionA)
@@ -474,7 +477,6 @@ object Repository {
         return questionlist
 
     }
-
     //COMPLETE make a function to retrieve a list of all games played
     fun getGameDao(context: Context): GameDao {
         return Room.databaseBuilder(context, GameDatabase::class.java, "GameDB")
@@ -482,5 +484,6 @@ object Repository {
             .build()
             .gameDao
     }
+
 
 }
