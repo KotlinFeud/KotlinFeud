@@ -236,7 +236,7 @@ object Repository {
         )
         val questionA3= Question(
             "What does the !! operator do?",
-            "It converts any value to a non-null type and throws an exceptions if the value is in fact null",
+            "It converts any value to a non-null type and throws an exception if the value is in fact null",
             "It's the modulo operator in Kotlin, similar to Java's %",
             "It compares two values for identify rather than equality",
             "All of the above",
